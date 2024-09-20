@@ -30,6 +30,7 @@ message CreateNotificationsReq{
     string id=1;
     string user_id=2;
     string message=3;
+    string date=4;
   }
   
   message GetNotificationsResponse{
