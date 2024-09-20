@@ -35,12 +35,12 @@ message LoginRequest {
 }
 
 message LoginResponse {
-    string hh_id = 1;
+    string id = 1;
     string role = 2;
 }
 
 message GetProfileRequest {
-    string hh_id = 1;
+    string id = 1;
 }
 
 message GetProfileResponse {
@@ -51,6 +51,7 @@ message GetProfileResponse {
     string phone         = 5;
     string date_of_birth = 6;
     string gender        = 7;
+    string id =8;
 }
 
 message GetAllUsersRequest {
@@ -73,22 +74,24 @@ message GetAllUsersResponse {
 }
 
 message UpdateProfileRequest {
-    string profile_picture = 1;
-    string password        = 2;
+    string id =1;
+    string profile_picture = 2;
+    string password        = 3;
 }
 
 
 message UpdateProfileAdminRequest {
-    string firstname     = 1;
-    string lastname      = 2;
-    string password      = 3;
-    string phone         = 4;
-    string date_of_birth = 5;
-    string gender        = 6;
-    string group         = 7;
+    string id=1;
+    string firstname     = 2;
+    string lastname      = 3;
+    string password      = 4;
+    string phone         = 5;
+    string date_of_birth = 6;
+    string gender        = 7;
+    string group         = 8;
 }
 
 
 message DeleteProfileRequest {
-    string hh_id = 1;
+    string id = 1;
 }
