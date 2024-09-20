@@ -5,30 +5,29 @@ option go_package = "genproto/user";
 package user;
 
 service Users {
-    rpc Register(RegisterRequest) returns (RegisterResponse);
+    rpc Register(RegisterRequest) returns (Void);
     rpc Login(LoginRequest) returns (LoginResponse);
-    rpc GetProfile(GetProfileRequest) returns (GetProfileResponse);
+    rpc GetProfile(GetProfileRequest) returns (Void);
     rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
-    rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse);
-    rpc UpdateProfileAdmin(UpdateProfileAdminRequest) returns (UpdateProfileAdminResponse);
-    rpc DeleteProfile(DeleteProfileRequest) returns (DeleteProfileResponse);
+    rpc UpdateProfile(UpdateProfileRequest) returns (Void);
+    rpc UpdateProfileAdmin(UpdateProfileAdminRequest) returns (Void);
+    rpc DeleteProfile(DeleteProfileRequest) returns (Void);
 }
+
+message Void{}
 
 message RegisterRequest {
-    string id            = 1;
-    string hh_id         = 2;
-    string firstname     = 3;
-    string lastname      = 4;
-    string password      = 5;
-    string phone         = 6;
-    string date_of_birth = 7;
-    string gender        = 8;
-    string group         = 9;
+    string hh_id         = 1;
+    string firstname     = 2;
+    string lastname      = 3;
+    string password      = 4;
+    string phone         = 5;
+    string date_of_birth = 6;
+    string gender        = 7;
+    string group         = 8;
 }
 
-message RegisterResponse {
-    string message = 1;
-}
+
 
 message LoginRequest {
     string hh_id    = 1;
@@ -36,11 +35,12 @@ message LoginRequest {
 }
 
 message LoginResponse {
-    string message = 1;
+    string hh_id = 1;
+    string role = 2;
 }
 
 message GetProfileRequest {
-    string id = 1;
+    string hh_id = 1;
 }
 
 message GetProfileResponse {
@@ -53,10 +53,23 @@ message GetProfileResponse {
     string gender        = 7;
 }
 
-message GetAllUsersRequest {}
+message GetAllUsersRequest {
+    string role = 1;
+    string group = 2;
+    string subject = 3;
+    string teacher = 4;
+    string hh_id = 5;
+    string phone_number = 6;
+    string gender = 7;
+    int64 limit = 8;
+    int64 offset = 9;
+}
 
 message GetAllUsersResponse {
     repeated GetProfileResponse users = 1;
+    int64 total_count = 2;
+    int64 page = 3;
+    int64 limit = 4;
 }
 
 message UpdateProfileRequest {
@@ -64,9 +77,6 @@ message UpdateProfileRequest {
     string password        = 2;
 }
 
-message UpdateProfileResponse {
-    string message = 1;
-}
 
 message UpdateProfileAdminRequest {
     string firstname     = 1;
@@ -79,14 +89,6 @@ message UpdateProfileAdminRequest {
 }
 
 
-message UpdateProfileAdminResponse {
-    string message = 1;
-}
-
 message DeleteProfileRequest {
-    string id = 1;
-}
-
-message DeleteProfileResponse {
-    string message = 1;
+    string hh_id = 1;
 }
