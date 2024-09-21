@@ -38,6 +38,7 @@ message UpdateGroupReq{
     string room = 3;
     string start_time = 4;
     string end_time = 5;
+    string started_at = 6;
 }
 
 message UpdateGroupResp{
@@ -78,7 +79,7 @@ message GetAllGroupsResp{
 }
 
 message AddStudentReq{
-    string student_id = 1;
+    string student_hh_id = 1;
     string group_id = 2;
 }
 
@@ -88,9 +89,8 @@ message AddStudentResp{
 }
 
 message DeleteStudentReq{
-    string id = 1;
-    string group_id = 2;
-    string user_id = 3;
+    string group_id = 1;
+    string student_hh_id = 2;
 }
 
 message AddTeacherReq{
