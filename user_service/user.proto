@@ -7,7 +7,7 @@ package user;
 service Users {
     rpc Register(RegisterRequest) returns (Void);
     rpc Login(LoginRequest) returns (LoginResponse);
-    rpc GetProfile(GetProfileRequest) returns (Void);
+    rpc GetProfile(GetProfileRequest) returns (GetProfileResponse);
     rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse);
     rpc UpdateProfile(UpdateProfileRequest) returns (Void);
     rpc UpdateProfileAdmin(UpdateProfileAdminRequest) returns (Void);
