@@ -110,7 +110,7 @@ message DeleteTeacherReq{
 }
 
 message StudentId{
-    string id = 1;
+    string hh_id = 1;
 }
 
 message StudentGroups{
