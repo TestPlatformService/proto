@@ -24,7 +24,6 @@ message RegisterRequest {
     string phone         = 5;
     string date_of_birth = 6;
     string gender        = 7;
-    string group         = 8;
 }
 
 
@@ -37,6 +36,8 @@ message LoginRequest {
 message LoginResponse {
     string id = 1;
     string role = 2;
+    string access = 3;
+    string refresh = 4;
 }
 
 message GetProfileRequest {
@@ -51,7 +52,8 @@ message GetProfileResponse {
     string phone         = 5;
     string date_of_birth = 6;
     string gender        = 7;
-    string id =8;
+    string id            = 8;
+    string role          = 9;
 }
 
 message AllUsers {
@@ -78,21 +80,20 @@ message GetAllUsersResponse {
 }
 
 message UpdateProfileRequest {
-    string id =1;
+    string id = 1;
     string profile_picture = 2;
     string password        = 3;
 }
 
 
 message UpdateProfileAdminRequest {
-    string id=1;
+    string id = 1;
     string firstname     = 2;
     string lastname      = 3;
     string password      = 4;
     string phone         = 5;
     string date_of_birth = 6;
     string gender        = 7;
-    string group         = 8;
 }
 
 
