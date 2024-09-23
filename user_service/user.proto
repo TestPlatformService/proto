@@ -37,6 +37,8 @@ message LoginRequest {
 message LoginResponse {
     string id = 1;
     string role = 2;
+    string access = 3;
+    string refresh = 4;
 }
 
 message GetProfileRequest {
@@ -51,7 +53,8 @@ message GetProfileResponse {
     string phone         = 5;
     string date_of_birth = 6;
     string gender        = 7;
-    string id =8;
+    string id            = 8;
+    string role          = 9;
 }
 
 message AllUsers {
