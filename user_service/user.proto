@@ -56,7 +56,9 @@ message GetProfileResponse {
     string role          = 9;
 }
 
-message AllUsers {
+
+
+message GetAllUsersRequest {
     string role = 1;
     string group = 2;
     string subject = 3;
@@ -66,10 +68,6 @@ message AllUsers {
     string gender = 7;
     int64 limit = 8;
     int64 offset = 9;
-}
-
-message GetAllUsersRequest {
-    repeated AllUsers users = 1;
 }
 
 message GetAllUsersResponse {
