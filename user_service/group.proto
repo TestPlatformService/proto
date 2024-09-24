@@ -16,6 +16,7 @@ service GroupService{
     rpc DeleteTeacherFromGroup(DeleteTeacherReq) returns(DeleteResp);
     rpc GetStudentGroups(StudentId) returns(StudentGroups);
     rpc GetTeacherGroups(TeacherId) returns(TeacherGroups);
+    rpc GetGroupStudents(GroupId) returns(GroupStudents);
 }
 
 message CreateGroupReq{
@@ -123,4 +124,20 @@ message TeacherId{
 
 message TeacherGroups{
     repeated Group groups = 1;
+}
+
+message Student{
+    string hh_id         = 1;
+    string firstname     = 2;
+    string lastname      = 3;
+    string password      = 4;
+    string phone         = 5;
+    string date_of_birth = 6;
+    string gender        = 7;
+    string id            = 8;
+    string role          = 9;
+}
+
+message GroupStudents{
+    repeated Student students = 1;
 }
