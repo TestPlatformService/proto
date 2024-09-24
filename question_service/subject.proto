@@ -11,7 +11,7 @@ service SubjectService {
     rpc DeleteSubject(DeleteSubjectRequest) returns (Void);
 }
 
-message CreateSubjectRequest {
+message CreateSubjectRequest {  
     string name        = 1;
     string description = 2;
 }
