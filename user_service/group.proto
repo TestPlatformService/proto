@@ -66,6 +66,11 @@ message Group{
     string started_at = 8;
 }
 
+message AllGroupsFilter{
+    string subject_id = 1;
+    string room = 2;
+}
+
 message GetAllGroupsReq{
     string subject_id = 1;
     string room = 2;
