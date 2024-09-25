@@ -55,6 +55,7 @@ message GetProfileResponse {
     string gender        = 7;
     string id            = 8;
     string role          = 9;
+    string photo         = 10;
 }
 
 
