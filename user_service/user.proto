@@ -12,6 +12,7 @@ service Users {
     rpc UpdateProfile(UpdateProfileRequest) returns (Void);
     rpc UpdateProfileAdmin(UpdateProfileAdminRequest) returns (Void);
     rpc DeleteProfile(DeleteProfileRequest) returns (Void);
+    rpc UploadPhoto(UploadPhotoRequest) returns (Void);
 }
 
 message Void{}
@@ -81,7 +82,6 @@ message GetAllUsersResponse {
 
 message UpdateProfileRequest {
     string id = 1;
-    string profile_picture = 2;
     string password        = 3;
 }
 
@@ -103,4 +103,9 @@ message DeleteProfileRequest {
 
 message Tokens{
     string refreshtoken=2;
+}
+
+message UploadPhotoRequest {
+    string id = 1;
+    string photo = 2;
 }
