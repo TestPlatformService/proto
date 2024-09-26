@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option go_package = "genproto/subjectTopic";
+
+package subjectTopic;
+
+service SubjectTopicService {
+    rpc CreateSubjectTopic(CreateSubjectTopicRequest) returns (Void);
+    rpc GetSubjectTopic(GetSubjectTopicRequest) returns (GetSubjectTopicResponse);
+    rpc GetAllSubjectTopics(GetAllSubjectTopicsRequest) returns (GetAllSubjectTopicsResponse);
+    rpc UpdateSubjectTopic(UpdateSubjectTopicRequest) returns (Void);
+    rpc DeleteSubjectTopic(DeleteSubjectTopicRequest) returns (Void);
+}
+
+message Void {}
+
+message CreateSubjectTopicRequest {
+    string subject_id  = 1;
+    string name        = 2;
+    string description = 3;
+}
+
+message GetSubjectTopicRequest {
+    string id = 1;
+}
+
+message GetSubjectTopicResponse {
+    string id          = 1;
+    string subject_id  = 2;
+    string name        = 3;
+    string description = 4;
+    string created_at  = 5;
+    string updated_at  = 6;
+}
+
+message GetAllSubjectTopicsRequest {
+    int64 limit  = 1;
+    int64 offset = 2;
+}
+
+message GetAllTopic {
+    string id          = 1;
+    string subject_id  = 2;
+    string name        = 3;
+    string description = 4;
+}
+
+message GetAllSubjectTopicsResponse {
+    repeated GetAllTopic topics = 1;
+}
+
+message UpdateSubjectTopicRequest {
+    string id          = 1;
+    string name        = 2;
+    string description = 3;
+}
+
+message DeleteSubjectTopicRequest {
+    string id = 1;
+}
