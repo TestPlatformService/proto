@@ -23,6 +23,21 @@ message GetSubjectRequest {
     string id = 1;
 }
 
+message GetAllSubjectsRequest {
+    int64 limit  = 1;
+    int64 offset = 2;
+}
+
+message GetAll {
+    string id          = 1;
+    string name        = 2;
+    string description = 3;
+}
+
+message GetAllSubjectsResponse {
+    repeated GetAll subjects = 1;
+}
+
 message GetSubjectResponse {
     string id          = 1;
     string name        = 2;
