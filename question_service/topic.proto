@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+option go_package = "genproto/topic";
+
+package topic;
+
+service TopicService{
+    rpc CreateTopic(CreateTopicReq) returns(CreateTopicResp);
+    rpc UpdateTopic(UpdateTopicReq) returns(UpdateTopicResp);
+    rpc DeleteTopic(DeleteTopicReq) returns(DeleteTopicResp);
+    rpc GetAllTopics(GetAllTopicsReq) returns(GetAllTopicsResp);
+}
+
+message CreateTopicReq{
+    string subject_id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message CreateTopicResp{
+    string id = 1;
+    string created_at = 2;
+}
+
+message UpdateTopicReq{
+    string id = 1;
+    string subject_id = 2;
+    string name = 3;
+    string description = 4;
+}
+
+message UpdateTopicResp{
+    string id = 1;
+    string updated_at = 2;
+}
+
+message DeleteTopicReq{
+    string topic_id = 1;
+}
+
+message DeleteTopicResp{
+    string status = 1;
+}
+
+message GetAllFilter{
+    string subject_id = 1;
+}
+
+message GetAllTopicsReq{
+    string subject_id = 1;
+    int32 limit = 2;
+    int32 offset = 3;
+}
+
+message Topic{
+    string id = 1;
+    string subject_id = 2;
+    string name = 3;
+    string description = 4;
+    string created_at = 5;
+}
+
+message GetAllTopicsResp{
+    repeated Topic topics = 1;
+    int32 limit = 2;
+    int32 offset = 3;
+}
