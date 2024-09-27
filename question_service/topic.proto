@@ -9,6 +9,15 @@ service TopicService{
     rpc UpdateTopic(UpdateTopicReq) returns(UpdateTopicResp);
     rpc DeleteTopic(DeleteTopicReq) returns(DeleteTopicResp);
     rpc GetAllTopics(GetAllTopicsReq) returns(GetAllTopicsResp);
+    rpc GetTopicIdByName(TopicNameReq) returns(TopicIdResp);
+}
+
+message TopicNameReq{
+    string name = 1;
+}
+
+message TopicIdResp{
+    string id = 1;
 }
 
 message CreateTopicReq{
