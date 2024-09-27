@@ -50,6 +50,8 @@ message CreateQuestionRequest{
     string description = 6;
     string image = 7;
     string constrains = 8;
+    string input_info=9 ;
+    string output_info=10 ;
 }
 
 message Void {}
@@ -68,8 +70,10 @@ message GetQuestionResponse {
     string description = 7;
     string image = 8;
     string constrains = 9;
-    string created_at = 10;
-    string updated_at = 11;
+    string input_info=10 ;
+    string output_info=11 ;
+    string created_at = 12;
+    string updated_at = 13;
 }
 
 message GetAllQuestionsRequest {
@@ -80,6 +84,8 @@ message GetAllQuestionsRequest {
     string name = 5;
     int64 number = 6;
     string difficulty = 7;
+    string input_info=8 ;
+    string output_info=9 ;
 }
 
 message GetAllQuestionsResponse {
@@ -98,6 +104,8 @@ message UpdateQuestionRequest {
     string description = 7;
     string image = 8;
     string constrains = 9;
+    string input_info=10 ;
+    string output_info=11 ;
 }
 
 message DeleteQuestionRequest {
