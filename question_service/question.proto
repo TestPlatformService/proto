@@ -1,0 +1,229 @@
+syntax = "proto3";
+
+option go_package = "genproto/question";
+
+package question;
+
+service QuestionService {
+    // question
+    rpc CreateQuestion(CreateQuestionRequest) returns (QuestionId);
+    rpc GetQuestion(QuestionId) returns (GetQuestionResponse);
+    rpc GetAllQuestions(GetAllQuestionsRequest) returns (GetAllQuestionsResponse);
+    rpc UpdateQuestion(UpdateQuestionRequest) returns (Void);
+    rpc DeleteQuestion(DeleteQuestionRequest) returns (Void);
+    rpc UploadImageQuestion(UploadImageQuestionRequest) returns (Void);
+    rpc DeleteImageQuestion(DeleteImageQuestionRequest) returns (Void);
+    rpc IsQuestionExist(QuestionId) returns (Void);
+}
+    // output
+    service OutputService { 
+    rpc CreateQuestionOutput(CreateQuestionOutputRequest) returns (QuestionOutputId);
+    rpc GetQuestionOutput(QuestionOutputId) returns (GetQuestionOutputResponse);
+    rpc GetAllQuestionOutputsByQuestionId(GetAllQuestionOutputsByQuestionIdRequest) returns (GetAllQuestionOutputsByQuestionIdResponse);
+    rpc UpdateQuestionOutput(UpdateQuestionOutputRequest) returns (Void);
+    rpc DeleteQuestionOutput(DeleteQuestionOutputRequest) returns (Void);}
+    // input
+    service InputService {
+    rpc CreateQuestionInput(CreateQuestionInputRequest) returns (QuestionInputId);
+    rpc GetQuestionInput(QuestionInputId) returns (GetQuestionInputResponse);
+    rpc GetAllQuestionInputsByQuestionId(GetAllQuestionInputsByQuestionIdRequest) returns (GetAllQuestionInputsByQuestionIdResponse);
+    rpc UpdateQuestionInput(UpdateQuestionInputRequest) returns (Void);
+    rpc DeleteQuestionInput(DeleteQuestionInputRequest) returns (Void);
+}
+    // test_case
+    service TestCaseService {
+    rpc CreateTestCase(CreateTestCaseRequest) returns (TestCaseId);
+    rpc GetTestCase(TestCaseId) returns (GetTestCaseResponse);
+    rpc GetAllTestCasesByQuestionId(GetAllTestCasesByQuestionIdRequest) returns (GetAllTestCasesByQuestionIdResponse);
+    rpc UpdateTestCase(UpdateTestCaseRequest) returns (Void);
+    rpc DeleteTestCase(DeleteTestCaseRequest) returns (Void);
+}
+
+// question 
+
+message CreateQuestionRequest{
+    string topic_id = 1;
+    string type = 2;
+    string name = 3;
+    int64 number = 4;
+    string difficulty = 5;
+    string description = 6;
+    string image = 7;
+    string constrains = 8;
+}
+
+message Void {}
+
+message QuestionId {
+    string id = 1;
+}
+
+message GetQuestionResponse {
+    string id = 1;
+    string topic_id = 2;
+    string type = 3;
+    string name = 4;
+    int64 number = 5;
+    string difficulty = 6;
+    string description = 7;
+    string image = 8;
+    string constrains = 9;
+    string created_at = 10;
+    string updated_at = 11;
+}
+
+message GetAllQuestionsRequest {
+    int64 limit = 1;
+    int64 offset = 2;
+    string topic_id = 3;
+    string type = 4;
+    string name = 5;
+    int64 number = 6;
+    string difficulty = 7;
+}
+
+message GetAllQuestionsResponse {
+    repeated GetQuestionResponse questions = 1;
+    int64 total = 2;
+    int64 page = 3;
+}
+
+message UpdateQuestionRequest {
+    string id = 1;
+    string topic_id = 2;
+    string type = 3;
+    string name = 4;
+    int64 number = 5;
+    string difficulty = 6;
+    string description = 7;
+    string image = 8;
+    string constrains = 9;
+}
+
+message DeleteQuestionRequest {
+    string id = 1;
+}
+
+message UploadImageQuestionRequest {
+    string question_id = 1;
+    string image = 2;
+}
+
+message DeleteImageQuestionRequest {
+    string question_id = 1;
+}
+
+
+// Question_output 
+
+message CreateQuestionOutputRequest {
+    string question_id = 1;
+    string input_id = 2;
+    string answer = 3;
+}
+
+message QuestionOutputId {
+    string id = 1;
+}
+
+message GetAllQuestionOutputsByQuestionIdRequest {
+    string question_id = 1;
+}
+
+message GetAllQuestionOutputsByQuestionIdResponse {
+    repeated GetQuestionOutputResponse question_outputs = 1;
+}
+
+message GetQuestionOutputResponse {
+    string id = 1;
+    string question_id = 2;
+    string input_id = 3;
+    string answer = 4;
+}
+
+
+message UpdateQuestionOutputRequest {
+    string id = 1;
+    string question_id = 2;
+    string input_id = 3;
+    string answer = 4;
+}
+
+message DeleteQuestionOutputRequest {
+    string id = 1;
+}
+
+
+// Question_input 
+
+message CreateQuestionInputRequest {
+    string question_id = 1;
+    string input = 2;
+}
+
+message QuestionInputId {
+    string id = 1;
+}
+
+message GetQuestionInputResponse {
+    string id = 1;
+    string question_id = 2;
+    string input = 3;
+}
+
+message GetAllQuestionInputsByQuestionIdRequest {
+    string question_id = 1;
+}
+
+message GetAllQuestionInputsByQuestionIdResponse {
+    repeated GetQuestionInputResponse question_inputs = 1;
+}
+
+message UpdateQuestionInputRequest {
+    string id = 1;
+    string question_id = 2;
+    string input = 3;
+}
+
+message DeleteQuestionInputRequest {
+    string id = 1;
+}
+
+
+// Test_case 
+
+message CreateTestCaseRequest {
+    string question_id = 1;
+    string case = 2;
+    bool is_correct = 3;
+}
+
+message TestCaseId {
+    string id = 1;
+}
+
+message GetTestCaseResponse {
+    string id = 1;
+    string question_id = 2;
+    string case = 3;
+    bool is_correct = 4;
+}
+
+message GetAllTestCasesByQuestionIdRequest {
+    string question_id = 1;
+}
+
+message GetAllTestCasesByQuestionIdResponse {
+    repeated GetTestCaseResponse test_cases = 1;
+}
+
+message UpdateTestCaseRequest {
+    string id = 1;
+    string question_id = 2;
+    string case = 3;
+    bool is_correct = 4;
+}
+
+message DeleteTestCaseRequest {
+    string id = 1;
+}

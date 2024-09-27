@@ -12,6 +12,8 @@ service Users {
     rpc UpdateProfile(UpdateProfileRequest) returns (Void);
     rpc UpdateProfileAdmin(UpdateProfileAdminRequest) returns (Void);
     rpc DeleteProfile(DeleteProfileRequest) returns (Void);
+    rpc UploadPhoto(UploadPhotoRequest) returns (Void);
+    rpc DeletePhoto(DeletePhotoRequest) returns (Void);
 }
 
 message Void{}
@@ -24,6 +26,7 @@ message RegisterRequest {
     string phone         = 5;
     string date_of_birth = 6;
     string gender        = 7;
+    string role          = 8;
 }
 
 
@@ -54,6 +57,7 @@ message GetProfileResponse {
     string gender        = 7;
     string id            = 8;
     string role          = 9;
+    string photo         = 10;
 }
 
 
@@ -79,7 +83,6 @@ message GetAllUsersResponse {
 
 message UpdateProfileRequest {
     string id = 1;
-    string profile_picture = 2;
     string password        = 3;
 }
 
@@ -96,5 +99,19 @@ message UpdateProfileAdminRequest {
 
 
 message DeleteProfileRequest {
+    string id = 1;
+}
+
+message Tokens{
+    string refreshtoken=2;
+}
+
+message UploadPhotoRequest {
+    string id = 1;
+    string photo = 2;
+}
+
+
+message DeletePhotoRequest {
     string id = 1;
 }
