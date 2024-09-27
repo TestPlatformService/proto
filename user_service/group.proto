@@ -17,6 +17,8 @@ service GroupService{
     rpc GetStudentGroups(StudentId) returns(StudentGroups);
     rpc GetTeacherGroups(TeacherId) returns(TeacherGroups);
     rpc GetGroupStudents(GroupId) returns(GroupStudents);
+    rpc CreateGroupDay(CreateGroupDayReq) returns(CreateGroupDayResp);
+    rpc DeleteGroupDay(DeleteGroupDayReq) returns(DeleteGroupDayResp);
 }
 
 message CreateGroupReq{
@@ -145,4 +147,21 @@ message Student{
 
 message GroupStudents{
     repeated Student students = 1;
+}
+
+message CreateGroupDayReq{
+    string grop_id = 1;
+    string day = 2;
+}
+
+message CreateGroupDayResp{
+    string id = 1;
+}
+
+message DeleteGroupDayReq{
+    string id = 1;
+}
+
+message DeleteGroupDayResp{
+    string status = 1;
 }
