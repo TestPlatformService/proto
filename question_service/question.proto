@@ -84,8 +84,6 @@ message GetAllQuestionsRequest {
     string name = 5;
     int64 number = 6;
     string difficulty = 7;
-    string input_info=8 ;
-    string output_info=9 ;
 }
 
 message GetAllQuestionsResponse {
