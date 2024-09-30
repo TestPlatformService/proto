@@ -52,6 +52,10 @@ message CreateQuestionRequest{
     string constrains = 8;
     string input_info=9 ;
     string output_info=10 ;
+    string language=11 ;
+    int64 time_limit=12 ;
+    int64 memory_limit=13 ;
+
 }
 
 message Void {}
@@ -72,8 +76,11 @@ message GetQuestionResponse {
     string constrains = 9;
     string input_info=10 ;
     string output_info=11 ;
-    string created_at = 12;
-    string updated_at = 13;
+    string language=12 ;
+    int64 time_limit=13 ;
+    int64 memory_limit=14 ;
+    string created_at = 15;
+    string updated_at = 16;
 }
 
 message GetAllQuestionsRequest {
@@ -84,6 +91,7 @@ message GetAllQuestionsRequest {
     string name = 5;
     int64 number = 6;
     string difficulty = 7;
+    string language=8 ;
 }
 
 message GetAllQuestionsResponse {
@@ -104,6 +112,9 @@ message UpdateQuestionRequest {
     string constrains = 9;
     string input_info=10 ;
     string output_info=11 ;
+    string language=12 ;
+    int64 time_limit=13 ;
+    int64 memory_limit=14 ;
 }
 
 message DeleteQuestionRequest {
