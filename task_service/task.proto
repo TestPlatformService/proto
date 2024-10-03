@@ -1,0 +1,51 @@
+syntax = "proto3";
+option go_package = "genproto/task";
+package task;
+
+service TaskService{
+    rpc CreateTask(CreateTaskReq) returns(CreateTaskResp);
+    rpc DeleteTask(DeleteTaskReq) returns(DeleteTaskResp);
+    rpc GetTask(GetTaskReq) returns(GetTaskResp);
+}
+
+message CreateTaskReq{
+    string group_id = 1;
+    string topic_id = 2;
+}
+
+message CreateTaskResp{
+    string task_id = 1;
+    string created_at = 2;
+}
+
+message DeleteTaskReq{
+    string task_id = 1;
+}
+
+message DeleteTaskResp{
+    string status = 1;
+}
+
+message GetTaskReq{
+    string topic_id = 1;
+    string user_id = 2;
+    string task_id = 3;
+}
+
+message Question{
+    string id = 1;
+    string topic_id = 2;
+    string type = 3;
+    string name = 4;
+    int64 number = 5;
+    string difficulty = 6;
+    string description = 7;
+    string image = 8;
+    string constrains = 9;
+}
+
+message GetTaskResp{
+    string task_id = 1;
+    repeated Question questions = 2;
+}
+
