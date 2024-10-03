@@ -58,7 +58,7 @@ message GetAllFilter{
 message GetAllTopicsReq{
     string subject_id = 1;
     int32 limit = 2;
-    int32 offset = 3;
+    int32 page = 3;
 }
 
 message Topic{
@@ -72,5 +72,5 @@ message Topic{
 message GetAllTopicsResp{
     repeated Topic topics = 1;
     int32 limit = 2;
-    int32 offset = 3;
+    int32 page = 3;
 }

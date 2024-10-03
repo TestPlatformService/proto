@@ -25,7 +25,7 @@ message GetSubjectRequest {
 
 message GetAllSubjectsRequest {
     int64 limit  = 1;
-    int64 offset = 2;
+    int64 page = 2;
 }
 
 message GetAll {
