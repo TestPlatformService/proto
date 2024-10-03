@@ -73,4 +73,5 @@ message GetAllTopicsResp{
     repeated Topic topics = 1;
     int32 limit = 2;
     int32 page = 3;
+    int32 count = 4;
 }
