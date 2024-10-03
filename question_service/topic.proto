@@ -9,6 +9,15 @@ service TopicService{
     rpc UpdateTopic(UpdateTopicReq) returns(UpdateTopicResp);
     rpc DeleteTopic(DeleteTopicReq) returns(DeleteTopicResp);
     rpc GetAllTopics(GetAllTopicsReq) returns(GetAllTopicsResp);
+    rpc GetTopicIdByName(TopicNameReq) returns(TopicIdResp);
+}
+
+message TopicNameReq{
+    string name = 1;
+}
+
+message TopicIdResp{
+    string id = 1;
 }
 
 message CreateTopicReq{
@@ -49,7 +58,7 @@ message GetAllFilter{
 message GetAllTopicsReq{
     string subject_id = 1;
     int32 limit = 2;
-    int32 offset = 3;
+    int32 page = 3;
 }
 
 message Topic{
@@ -63,5 +72,6 @@ message Topic{
 message GetAllTopicsResp{
     repeated Topic topics = 1;
     int32 limit = 2;
-    int32 offset = 3;
+    int32 page = 3;
+    int32 count = 4;
 }
