@@ -19,6 +19,15 @@ service GroupService{
     rpc GetGroupStudents(GroupId) returns(GroupStudents);
     rpc CreateGroupDay(CreateGroupDayReq) returns(CreateGroupDayResp);
     rpc DeleteGroupDay(DeleteGroupDayReq) returns(DeleteGroupDayResp);
+    rpc StartLesson(StartLessonReq) returns(StartLessonResp);
+}
+
+message StartLessonReq{
+    string topic_id = 1;
+}
+
+message StartLessonResp{
+    string status = 1;
 }
 
 message CreateGroupReq{
@@ -77,13 +86,14 @@ message GetAllGroupsReq{
     string subject_id = 1;
     string room = 2;
     int32 limit = 3;
-    int32 offset = 4;
+    int32 page = 4;
 }
 
 message GetAllGroupsResp{
     repeated Group groups = 1;
     int32 limit = 2;
-    int32 offset = 3;
+    int32 page = 3;
+    int32 count = 4;
 }
 
 message AddStudentReq{
