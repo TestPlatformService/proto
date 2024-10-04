@@ -36,6 +36,7 @@ message GetAll {
 
 message GetAllSubjectsResponse {
     repeated GetAll subjects = 1;
+    int64 count              = 2;
 }
 
 message GetSubjectResponse {
