@@ -1,0 +1,24 @@
+syntax = "proto3";
+option go_package = "gebproto/checker";
+package checker;
+
+service CheckerService{
+    rpc Submit(SubmitReq) returns(SubmitResp);
+}
+
+message InputOutput{
+    string in = 1;
+    string out = 2;
+}
+
+message SubmitReq{
+    string code = 1;
+    string lang = 2;
+    int32 time_limit = 3;
+    int64 memory_limit = 4;
+    repeated InputOutput io = 5;
+}
+
+message SubmitResp{
+
+}
