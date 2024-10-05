@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "gebproto/checker";
+option go_package = "genproto/checker";
 package checker;
 
 service CheckerService{
