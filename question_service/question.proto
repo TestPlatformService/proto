@@ -14,7 +14,6 @@ service QuestionService {
     rpc UploadImageQuestion(UploadImageQuestionRequest) returns (Void);
     rpc DeleteImageQuestion(DeleteImageQuestionRequest) returns (Void);
     rpc IsQuestionExist(QuestionId) returns (Void);
-    rpc GetQuestionRandomly(GetQuestionRandomlyRequest) returns (GetQuestionRandomlyResponse);
 }
     // output
     service OutputService { 
@@ -134,10 +133,6 @@ message DeleteImageQuestionRequest {
 message GetQuestionRandomlyRequest{
     string topic_id = 1;
     int64 count = 2;
-}
-
-message GetQuestionRandomlyResponse{
-    repeated QuestionId questions_id = 1;
 }
 
 
