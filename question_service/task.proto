@@ -29,7 +29,6 @@ message DeleteTaskResp{
 message GetTaskReq{
     string topic_id = 1;
     string user_id = 2;
-    string task_id = 3;
 }
 
 message Question{
