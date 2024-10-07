@@ -130,6 +130,11 @@ message DeleteImageQuestionRequest {
     string question_id = 1;
 }
 
+message GetQuestionRandomlyRequest{
+    string topic_id = 1;
+    int64 count = 2;
+}
+
 
 // Question_output 
 

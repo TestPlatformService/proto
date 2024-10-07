@@ -24,6 +24,7 @@ message CreateTopicReq{
     string subject_id = 1;
     string name = 2;
     string description = 3;
+    int32 question_count = 4;
 }
 
 message CreateTopicResp{
@@ -36,6 +37,7 @@ message UpdateTopicReq{
     string subject_id = 2;
     string name = 3;
     string description = 4;
+    int32 question_count = 5;
 }
 
 message UpdateTopicResp{
@@ -66,7 +68,8 @@ message Topic{
     string subject_id = 2;
     string name = 3;
     string description = 4;
-    string created_at = 5;
+    int32 question_count = 5;
+    string created_at = 6;
 }
 
 message GetAllTopicsResp{
