@@ -21,7 +21,9 @@ service QuestionService {
     rpc GetQuestionOutput(QuestionOutputId) returns (GetQuestionOutputResponse);
     rpc GetAllQuestionOutputsByQuestionId(GetAllQuestionOutputsByQuestionIdRequest) returns (GetAllQuestionOutputsByQuestionIdResponse);
     rpc UpdateQuestionOutput(UpdateQuestionOutputRequest) returns (Void);
-    rpc DeleteQuestionOutput(DeleteQuestionOutputRequest) returns (Void);}
+    rpc DeleteQuestionOutput(DeleteQuestionOutputRequest) returns (Void);
+    rpc GetQUestionOutPutByInputId(GetQUestionOutPutByInputIdRequest) returns (GetQUestionOutPutByInputIdRes);
+}
     // input
     service InputService {
     rpc CreateQuestionInput(CreateQuestionInputRequest) returns (QuestionInputId);
@@ -175,6 +177,13 @@ message DeleteQuestionOutputRequest {
     string id = 1;
 }
 
+message GetQUestionOutPutByInputIdRequest{
+    string input_id=1;
+}
+
+message GetQUestionOutPutByInputIdRes{
+    repeated GetQuestionOutputResponse question_outputs = 1;
+}
 
 // Question_input 
 
