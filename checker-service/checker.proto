@@ -3,22 +3,24 @@ option go_package = "genproto/checker";
 package checker;
 
 service CheckerService{
-    rpc Submit(SubmitReq) returns(SubmitResp);
+    rpc GetSubmits(GetSubmitsRequest) returns (GetSubmitsResponse);
 }
 
-message InputOutput{
-    string in = 1;
-    string out = 2;
+message GetSubmitsRequest {
+    string question_id = 1;
+    string user_id     = 2;
 }
 
-message SubmitReq{
-    string code = 1;
-    string lang = 2;
-    int32 time_limit = 3;
-    int64 memory_limit = 4;
-    repeated InputOutput io = 5;
+message GetSubmit {
+    string id             = 1;
+    string question_name  = 2;
+    string status         = 3;
+    string language       = 4;
+    int32 compiled_time   = 5;
+    int32 compiled_memory = 6;
+    string submitted_at   = 7;
 }
 
-message SubmitResp{
-    
+message GetSubmitsResponse {
+    repeated GetSubmit submits = 1;
 }
